@@ -13,7 +13,7 @@ Lukuja voidaan laskea yhteen tai niitä voidaan vähentää. Aivan kuten yhteenl
 matematiikassa, kirjoitetaan se samoin ohjelmoinnissa. Esimerkiksi:
 
 <pre>
- 1 + 2
+1 + 2
 </pre>
 Kone laskee tälle tuloksen 
 <pre>
@@ -60,7 +60,7 @@ Laskutoimituksia voidaan myös pötköttää peräkkäin
 
 <script>
   const check = (tId, bId, correct) => {
-    document.getElementById(bId).onClick = (e) => {
+    document.getElementById(bId).onclick = (e) => {
       const answer = document.getElementById(tId).value
       try {
         const resolution = eval(answer)

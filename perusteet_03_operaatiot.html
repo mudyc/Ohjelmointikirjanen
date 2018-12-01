@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Numero-operaatiot</h1>
+
+Luvuilla on mukava leikkiä. Tietokone on varsinainen haka laskennassa, josta kertoo 
+myös englanninkielinen nimitys <i>computer</i> joka juontaa verbistä compute eli laskea (lukuja).
+Lukuja voidaan laskea yhteen tai niitä voidaan vähentää. Aivan kuten yhteenlasku kirjoitetaan 
+matematiikassa, kirjoitetaan se samoin ohjelmoinnissa. Esimerkiksi:
+
+<pre>
+ 1 + 2
+</pre>
+Kone laskee tälle tuloksen 
+<pre>
+3
+</pre>
+<p>
+Vastaavasti vähennyslaskutoimitus voidaan kirjoittaa seuraavasti:
+<pre>
+7 - 12
+</pre>
+Erotus on
+<pre>
+-5
+</pre>
+<p>
+Laskutoimituksia voidaan myös pötköttää peräkkäin
+<pre>
+1 + 2 - 3 + 4 - 5 + 6 - 7 + 8
+</pre>
+
+<h2>Tehtävät</h2>
+<ol>
+<li>Muodosta laskutoimitus jossa lasketaan yhteen kahden tallin hevoset.
+    Ensimmäisessä tallissa on 3 hevosta ja toisessa 4 hevosta.
+    <textarea id="t1"></textarea> <button id="b1">Tarkista!</button>
+</li>
+
+<li>Muodosta laskutoimitus jossa lasketaan yhteen numerot 7 ja 12094.
+    <textarea id="t2"></textarea> <button id="b2">Tarkista!</button>
+</li>
+
+<li>Muodosta laskutoimitus jossa on vähennyslasku numeroille 5 ja 6.
+    <textarea id="t3"></textarea> <button id="b3">Tarkista!</button>
+</li>
+
+<li>Muodosta yhteenlaskutoimitus seuraaville numeroille 549873 ja 9876287432.
+    <textarea id="t4"></textarea> <button id="b4">Tarkista!</button>
+</li>
+
+<li>Muodosta laskutoimitus jossa lasketaan ensin yhteen 46 ja 99 josta vähennetään 72 ja johon lisätään vielä 38.</li>
+    <textarea id="t5"></textarea> <button id="b5">Tarkista!</button>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onClick = (e) => {
+      const answer = document.getElementById(tId).value
+      try {
+        const resolution = eval(answer)
+        const rightResolution = eval(correct)
+        if (answer === correct)
+           alert('Loistavaa! Oikein meni :) ')
+        else if (resolution === rightResolution)
+           alert('Vastaus on oikein, mutta kirjoitusasu vaatii hieman hiomista. Tarkista ettei vastauksessa ole turhia välilyöntejä, mutta välilyönnit löytyvät ennen ja jälkeen operaatioiden.')
+        else
+           alert('Katso uudelleen esimerkkejä, ei mennyt oikein :(')
+       } catch (err) {
+         alert('Virrhe koodissa! ' + err)
+       } 
+     }
+  }
+
+
+  check('t1', 'b1', '3 + 4')
+  check('t2', 'b2', '7 + 12094')
+  check('t3', 'b3', '5 - 6')
+  check('t4', 'b4', '549873 + 9876287432')
+  check('t5', 'b5', '46 + 99 - 72 + 38')
+</script>
+
+
+</body>
+</html>

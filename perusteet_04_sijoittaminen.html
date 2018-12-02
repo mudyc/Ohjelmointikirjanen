@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Muuttujiin sijoittaminen</h1>
+
+Muuttujia käytetään määrittelemään tietoja. Mikäli muuttuja on sellainen jota voidaan muutella,
+on mahdollista sijoittaa uusi tieto.
+<pre>
+let cars = 23
+cars = cars + 1
+</pre>
+Esimerkissä muutettiin autot (cars) muuttujan arvoa 23:sta 24:ään edellisen luvussa harjoitetulla
+yhteenlaskuoperaatiolla.
+<p>
+Lasketaan uusi esimerkki jossa lasketaan perheen elikot (family members):
+<pre>
+const parents = 2
+const children = 4
+const cats = 3
+const familyMembers = parents + children + cats
+</pre>
+Koska esimerkin laskutoimituksessa ei tarvinnut muutella tietoja, käytetään const muuttujaa.
+Peukalosääntönä käytetään <b>const</b> määrittelyä aina ja vaihdetaan se <b>let</b> määrittelyyn
+mikäli on pakko.
+
+<h2>Tehtävät</h2>
+<ol>
+<li>Muodosta laskutoimitus jossa on vähennyslasku numeroille 5 ja 6 ja sijoitetaan erotus muuttujaan tulos (result).
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>Muodosta muuttuja vastaus (answer) johon lasketaan yhteen luvut 8 ja 30094546 sekä 537.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>Muodosta muuttuja siniset pallot (blue balls) 83kpl ja punaiset pallot (red balls) 102kpl 
+joiden yhteenlaskun sijoitat muuttujaan pallot (balls).
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>Muodosta yhteenlaskutoimitus numeroille 549873 ja 9876287432 muuttujaan arvo (value),
+josta vähennät seuraavalla rivillä numeron 73957.
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Kolme sinistä kissaa (blue cats) poikii yhden valkoisen kissan (white cats) ja kaksi mustaa kissaa (black cats). 
+    Muodosta laskutoimitus kissaperheen (cat family) kokonaismäärälle.
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      const answer = document.getElementById(tId).value
+      try {
+        const resolution = eval(answer)
+        const rightResolution = eval(correct)
+        if (answer === correct)
+           alert('Loistavaa! Oikein meni :) ')
+        else if (resolution === rightResolution)
+           alert('Vastaus on oikein, mutta kirjoitusasu vaatii hieman hiomista. Tarkista ettei vastauksessa ole turhia välilyöntejä, mutta välilyönnit löytyvät ennen ja jälkeen operaatioiden.')
+        else
+           alert('Katso uudelleen esimerkkejä, ei mennyt oikein :(')
+       } catch (err) {
+         alert('Virrhe koodissa! ' + err)
+       } 
+     }
+  }
+  check('t1', 'b1', 'const result = 5 - 6')
+  check('t2', 'b2', 'const answer = 8 + 30094546 + 537')
+  check('t3', 'b3',
+`const blueBalls = 83
+const redBalls = 102
+const balls = blueBalls + redBalls`)
+  check('t4', 'b4', 
+`let value = 549873 + 9876287432
+value = value - 73957`)
+  check('t5', 'b5', 
+`const blueCats = 3
+const whiteCats = 1
+const blackCats = 2
+const catFamily = blueCats + whiteCats + blackCats
+`)
+</script>
+
+
+</body>
+</html>

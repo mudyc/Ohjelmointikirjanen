@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Kerto- ja jakolaskut</h1>
+
+Aiemmin laskimme sujuvasti yhteen- ja vähennyslaskuja. Nyt voimme laajentaa laskutoimituksia
+myös kerto- ja jakolaskuihin. Aivan kuten laskennossa, myös tietokoneella on prioriteettijärjestys.
+Näin ollen lasku 1 + 3 * 3 on 10 eikä 12. Mikäli laskutoimituksesta halutaan 12 pitää käyttää
+sulkuja ohjaamaan laskua eli (1 + 3) * 3 on 12. 
+<p>
+Seuraavassa esimerkissä on sijoitettu esimerkki (example) muuttujiin useita erilaisia laskutoimituksia:
+<pre>
+const example1 = 2 * 3       // kertolasku
+const example2 = 2 * 3 * 4   // useamman luvun kertolasku
+const example3 = 2 / 3       // jakolasku
+const example4 = 21 / 7 / 3  // useamman luvun jakolasku
+const example5 = 21 / 7 * 5  // jako ja kertolaskuja
+const example6 = 1 + 2 * (3 - 4) / 5  // useita laskutoimituksia
+</pre>
+Huomattavaa on myös todeta muuttujanimen perässä oleva numero. Muuttujassa saa olla kirjaimia,
+numeroita tai alaviiva(_) kunhan numero ei aloita muuttujan nimeä.
+<p>
+Edellisten lisäksi on mahdollista käyttää jakojäännösoperaatiota joka tehdään prosenttimerkinnällä(%).
+Esimerkiksi seuraavassa lasketaan jakojäännös kun 9 jaetaan 2:lla. Jako menee tasan 4 kertaa jonka
+jälkeen jää jakojäännökseen (remainder) 1. (4 * 2 + 1 on 9) 
+<pre>
+const remainder = 9 % 2
+</pre>
+
+<h2>Tehtävät</h2>
+<ol>
+<li>Kirjoita kertolasku muuttujaan a jossa kerrotaan 3 ja 3.
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>Laske kuution tilavuus kun sivujen pituudet ovat 3 yksikköä, 145 yksikköä ja 23 yksikköä.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>Laske jakojäännös kun 837 jaetaan 31:llä.
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>Muodosta jakolasku numeroille 549873 ja 9876287432 muuttujaan arvo (value),
+jonka kerrot seuraavalla rivillä numerolla 73957.
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Konserttiin myytiin 170 kappaletta 5 euron lippuja. Jokaisesta lipusta vähennetään euro
+tilajärjestäjän ansiota. Muodosta konsertin tuottoa kuvaava laskutoimitus.
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      const answer = document.getElementById(tId).value
+      try {
+        const resolution = eval(answer)
+        const rightResolution = eval(correct)
+        if (answer === correct)
+           alert('Loistavaa! Oikein meni :) ')
+        else if (resolution === rightResolution)
+           alert('Vastaus on oikein, mutta kirjoitusasu vaatii hieman hiomista. Tarkista ettei vastauksessa ole turhia välilyöntejä, mutta välilyönnit löytyvät ennen ja jälkeen operaatioiden.')
+        else
+           alert('Katso uudelleen esimerkkejä, ei mennyt oikein :(')
+       } catch (err) {
+         alert('Virrhe koodissa! ' + err)
+       } 
+     }
+  }
+  check('t1', 'b1', 'const a = 3 * 3')
+  check('t2', 'b2', '3 * 145 * 23')
+  check('t3', 'b3', '837 % 31')
+  check('t4', 'b4', 
+`let value = 549873 / 9876287432
+value = value * 73957`)
+  check('t5', 'b5', '170 * (5 - 1)')
+</script>
+
+
+</body>
+</html>

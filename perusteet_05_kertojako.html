@@ -60,9 +60,12 @@ tilajärjestäjän ansiota. Muodosta konsertin tuottoa kuvaava laskutoimitus.
       try {
         const resolution = eval(answer)
         const rightResolution = eval(correct)
-        if (answer === correct)
+        if (answer === correct) {
            alert('Loistavaa! Oikein meni :) ')
-        else if (resolution === rightResolution)
+           const elem = document.getElementById(tId)
+           elem.readOnly = true
+           elem.style = "border-color: green;"
+        } else if (resolution === rightResolution)
            alert('Vastaus on oikein, mutta kirjoitusasu vaatii hieman hiomista. Tarkista ettei vastauksessa ole turhia välilyöntejä, mutta välilyönnit löytyvät ennen ja jälkeen operaatioiden.')
         else
            alert('Katso uudelleen esimerkkejä, ei mennyt oikein :(')

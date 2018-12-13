@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Funktiot</h1>
+
+Nyt päästään laskennosta ohjelmointiin! Seuraavaksi on vuorossa funktiot. Ne ovat pieniä ohjelman
+palasia, tehtäviä, jotka kertovat tietokoneelle miten jokin homma suoritetaan.
+<p>
+Funktiot määritellään yleensä muuttujaan. Seuraavassa esimerkissä määritellään funktio hae onnenluku (get lucky number)
+<pre>
+const getLuckyNumber = () => {
+    return 7
+}
+</pre>
+Tämä funktio palauttaa arvon <i>return</i> käskyllä. Alussa oleviin sulkujen sisälle
+voidaan laittaa funktiolle annettavat parametrit jotka käsitellään seuraavassa luvussa.
+Yleensä funktioiden nimet kuvaavat jotakin tekemistä eli verbiä, tässä tapauksessa hakemista.
+<p>
+Funktioita voidaan kutsua antamalla muuttujan nimi ja laittamalla perään sulut.
+Koska meillä ei vielä ole kutsuparametrejä, ei sulkujen sisälle tule arvoja.
+<pre>
+getLuckyNumber()       // palauttaa 7
+</pre>
+Tämä kutsu palauttaa nyt arvon 7, koska se määritettiin aiemmassa funktiossa.
+<p>
+Funktio voi palauttaa mitä vain tyyppejä. Jos ei <i>return</i> käskyä käytä,
+palauttaa funktio <i>undefined</i> arvon, joka tarkoittaa suomeksi määrittelemätöntä eli paluuarvoa ei ole määritelty.
+<pre>
+const getNothing = () => {
+}
+
+getNothing()    // palauttaa undefined
+</pre>
+Minimifunktio on seuraavanlainen:
+<pre>
+() => {}
+</pre>
+Se ei palauta mitään, ei ota parametrejä, eikä ole sijoitettu muuttujaan joten sitä ei voi kutsua.
+<p>
+Voidaan palauttaa muuttuja
+<pre>
+const value = 12.3
+const getValue = () => {
+    return value
+}
+
+getValue()    // palauttaa 12.3
+</pre>
+<p>
+Voidaan palauttaa myös funktio
+<pre>
+const myFunc = () => {
+    return 1
+}
+const getAnotherFunction = () => {
+    return myFunc
+}
+
+getAnotherFunction()    // palauttaa funktion myFunc
+
+const anotherFunction = getAnotherFunction() //  sijoitetaan paluuarvo eli myFunc anotherFunction muuttujaan
+anotherFunction()       // palauttaa 1, joka on määritelty funktiossa myFunc
+
+getAnotherFunction()()  // palauttaa 1, tehdään kaksi funktiokutsua, toinen heti ensimmäisen perään
+</pre>
+<p>
+Funktion sisällä voidaan määritellä muuttujia ja nämä muuttujat eivät näy ulospäin.
+Lisäksi palautuskäskyssä voidaan suorittaa useampia toimituksia.
+<pre>
+const getPrice = () => {
+    const price = 1.45
+    const tax = 0.24
+    return price + price * tax
+}
+</pre>
+
+
+<h2>Tehtävät</h2>
+<ol>
+<li>Kutsu funktiota getMyAge.
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getMyAge joka palauttaa iän 10.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>Määritä funktio joka palauttaa sormien lukumäärän (get fingers count) jossa funktion sisällä määritellään leftFingers sekä rightFingers arvoilla 5.
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>Määritä funktio jota ei ole sijoitettu muuttujaan ja joka ei palauta mitään.
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Miten edeltävänkaltaista minimifunktiota kutsutaan? Vinkki, laita ympärille sulut ja tee normaali funktiokutsu.
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      const answer = document.getElementById(tId).value
+      try {
+        const resolution = eval(answer)
+        const rightResolution = eval(correct)
+        if (answer === correct) {
+           alert('Loistavaa! Oikein meni :) ')
+           const elem = document.getElementById(tId)
+           elem.readOnly = true
+           elem.style = "border-color: green;"
+        } else if (resolution === rightResolution)
+           alert('Vastaus on oikein, mutta kirjoitusasu vaatii hieman hiomista. Tarkista ettei vastauksessa ole turhia välilyöntejä, mutta välilyönnit löytyvät ennen ja jälkeen operaatioiden.')
+        else
+           alert('Katso uudelleen esimerkkejä, ei mennyt oikein :(')
+       } catch (err) {
+         alert('Virrhe koodissa! ' + err)
+       } 
+     }
+  }
+  check('t1', 'b1', 'getMyAge()')
+  check('t2', 'b2', 
+`const getMyAge = () => {
+    return 10
+}`)
+  check('t3', 'b3',
+`const getFingersCount = () => {
+    const leftFingers = 5
+    const rightFingers = 5
+    return leftfingers + rightFingers
+}`)
+  check('t4', 'b4', '() => {}')
+  check('t5', 'b5', '(() => {})()')
+</script>
+
+
+</body>
+</html>

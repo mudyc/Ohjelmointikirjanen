@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Parametrit</h1>
+
+Edeltävässä luvussa käytiin läpi funktion rakenne. Nyt viimeistellään funktiot parametreilla jotka
+annetaan kutsuttavalle funktiolle. Esimerkkinä on funktio joka osaa laskea (count) suorakaiteen 
+pinta-alan (area) annetun pituuden (length) ja leveyden (width) perusteella.
+<pre>
+const countArea = (length, width) => {
+    return length * width
+}
+</pre>
+Tätä funktiota kutsutaan nyt seuraavasti:
+<pre>
+countArea(2, 4)   // palauttaa 8
+countArea(3, 5)   // palauttaa 15
+</pre>
+<p>
+Kutsujan ei tarvitse antaa kaikkia parametreja, tällöin parametri on määrittelemätön <i>undefined</i>.
+<pre>
+countArea()       // palauttaa NaN joka tarkoittaa Not a Number (ei ole numero), koska kertolaskussa käytetään määrittelemätöntä muuttujaa <i>undefined</i>
+</pre>
+<p>
+Kutsuja voi antaa myös liikaa parametreja joka ei ole virhetilanne.
+<pre>
+countArea(3, 4, 5)     // palauttaa 12, koska numeroa 5 ei käsitellä
+</pre>
+<p>
+Parametreja voi olla nolla tai useampi. Mikäli parametreja pitää antaa monia
+tulee kutsusta alttiimpaa virheille. Siksi parametrien määrä kannattaa pitää esim. alle viidessä.
+
+<h2>Tehtävät</h2>
+<ol>
+<li>Kutsu funktiota getNumber arvolla 6.
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getNumber joka palauttaa annetun numeron.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getInverseNumber joka palauttaa negaation annetulle numerolle.
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getSum joka yhteenlaskee annetut parametrit a,b,c ja d.
+    Kutsu funktiota arvoilla 0.3, 5, 13 ja -1
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Math.random() palauttaa satunnaisluvun nollan ja yhden väliltä. Kirjoita funktio 
+getRandomNumberBetween joka ottaa minimi (min) ja maksimi (max) parametrit ja palauttaa satunnaisluvun näiden väliltä.
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      alert('kun olet valmis, pyydä aikuista tarkistamaan!')
+     }
+  }
+  check('t1', 'b1', '')
+  check('t2', 'b2', '')
+  check('t3', 'b3', '')
+  check('t4', 'b4', '() => {}')
+  check('t5', 'b5', '(() => {})()')
+</script>
+
+
+</body>
+</html>

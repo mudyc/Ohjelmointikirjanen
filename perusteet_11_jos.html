@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Jos niin mitä sitten?</h1>
+
+On aika ottaa kunnon harppaus ohjelmoinnissa eteenpäin. Ohjelmoinnin tärkein
+looginen sääntö on osata jos(if)-lausekkeet. Niitä on jokapuolella ja ilman niitä
+nykyohjelmointia ei olisi olemassa. Loogisilla säännöillä käsitellään kaikkea tietoa
+joten niitä tarvitaan kaikessa tiedonkäsittelyssä.
+<p>
+Jos(if)-lauseke on muotoa:
+<pre>
+if (a < 2) {
+   // tämä osa suoritetaan jos a on pienempi kuin 2
+}
+</pre>
+Eli ensin tulee <i>if</i> jonka sisään tulee suluissa ehtolause. Tämän jälkeen
+on aaltosulut jotka määräävät suorituksen.
+<p>
+Ehtolauseita on erilaisia koska on olemassa erilaisia vertailuoperaattoreita.
+<pre>
+a < 2    // totta jos a on pienempi kuin 2
+3 <= b   // totta jos 3 on pienempi tai yhtäsuuri kuin b
+c === 4  // totta jos c on täsmälleen 4
+!d       // totta jos d on epätosi
+5 !== e  // totta jos e on eri kuin 5
+</pre>
+
+
+</p><h2>Tehtävät</h2>
+<ol>
+<li>Kutsu funktiota getNumber arvolla 6.
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getNumber joka palauttaa annetun numeron.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getInverseNumber joka palauttaa negaation annetulle numerolle.
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>Määritä funktio getSum joka yhteenlaskee annetut parametrit a,b,c ja d.
+    Kutsu funktiota arvoilla 0.3, 5, 13 ja -1
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Math.random() palauttaa satunnaisluvun nollan ja yhden väliltä. Kirjoita funktio 
+getRandomNumberBetween joka ottaa minimi (min) ja maksimi (max) parametrit ja palauttaa satunnaisluvun näiden väliltä.
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      alert('kun olet valmis, pyydä aikuista tarkistamaan!')
+     }
+  }
+  check('t1', 'b1', '')
+  check('t2', 'b2', '')
+  check('t3', 'b3', '')
+  check('t4', 'b4', '() => {}')
+  check('t5', 'b5', '(() => {})()')
+</script>
+
+
+
+
+</body></html>

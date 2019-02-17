@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+</head>
+<body>
 
+<h1>Perusteet: Jos - taikka ehtolause</h1>
+
+Jos-lauseella voidaan vaikuttaa merkitsevästi laskennan kulkuun.
+Nyt käydään läpi vaihtoehtoinen polku eli else -haara.
+Jos siis if-lauseen ehto ei toteudu, mennään vaihtoehtoiseen suorituspolkuun.
+Alla esimerkki:
+
+<pre>
+if (a < 2) {
+   // tämä osa suoritetaan jos a on pienempi kuin 2
+} else {
+   // tämä suoritetaan muussa tapauksessa
+}
+</pre>
+<p>
+if-else ehtoja voidaan myös ketjuttaa jolloin saadaan aikaan valintaketju:
+<pre>
+if (a < 2) {
+   // tämä osa suoritetaan jos a on pienempi kuin 2
+} else if (a === 3) {
+   // tämä suoritetaan jos a on täsmälleen 3
+} else if (a > 3) {
+   // tämä osa suoritetaan jos a suurempi kuin 3
+} else {
+   // tämä osa suoritetaan muussa tapauksessa, 
+   // esim. jos a on pienempi kuin 3 mutta suurempi tai yhtäsuuri kuin kaksi,
+   // tai jos a ei ole numero.
+}
+</pre>
+
+</p><h2>Tehtävät</h2>
+<ol>
+<li>Kirjoita ehtolause jos a suurempi kuin 5, niin silloin sijoita muuttujaan a kaksi, muussa tapauksessa sijoita a muuttujaan 3.
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Math.random() palauttaa satunnaisluvun nollan ja yhden väliltä. 
+Kirjoita ehtolause jos Math.random() on pienempi kuin 0.5 niin silloin tulos(result) on 1, muussa tapauksessa -1.
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      alert('kun olet valmis, pyydä aikuista tarkistamaan!')
+     }
+  }
+  check('t1', 'b1', '')
+  check('t2', 'b2', '')
+  check('t3', 'b3', '')
+  check('t4', 'b4', '() => {}')
+  check('t5', 'b5', '(() => {})()')
+</script>
+
+
+
+
+</body></html>

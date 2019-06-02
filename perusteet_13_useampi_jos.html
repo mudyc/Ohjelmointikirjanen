@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Perusteet: Useampi jossittelu</h1>
+
+Usein ehtolauseessa on useampia ehtoja. Esimerkiksi voidaan pohtia onko perjantai
+ja iltapäivä niin muista ostaa karkkia kaupasta.
+
+<pre>
+const perjantai = true
+const iltapaivä = true
+
+if (perjantai) {
+  if (iltapaiva) {
+    ostaKarkkia()
+  }
+}
+</pre>
+<p>
+Tämä sama voidaan kirjoittaa myös yhden rivin ehtolauseeksi lisäämällä && merkki ehtojen väliin, eli:
+<pre>
+if (perjantai && iltapaiva) {
+  ostaKarkkia()
+}
+</pre>
+On myös olemassa || merkki jolla voidaan sanoa ehto 1 tai ehto 2.
+<pre>
+if (perjantai || iltapaiva) {
+  ostaKarkkia()
+}
+</pre>
+Tässä tapauksessa karkkia ostetaan perjantaina sekä jokainen iltapäivä.
+<p>
+Ehtoja voidaan sarjoittaa peräkkäin niin monta kuin halutaan. Tällöin niitä luetaan vasemmalta oikealle, esim.
+<pre>
+if ((monday || tuesday || wednesday || thursday || friday) && !holyday) {
+  workDay = true
+}
+</pre>
+Edellisessä määritettiin olevan työpäivä (nuorille koulupäivä) jos maanantai
+tai tiistai tai keskiviikko tai torstai tai perjantai ja ei ole samalla pyhäpäivä (tai lomapäivä).
+
+</p><h2>Tehtävät</h2>
+<ol>
+<li>Kirjoita ehtolause jossa ehtona on banaani tai omena tai appelsiini jolloin hedelmä (=fruit) on tosi.
+    <div><textarea id="t1"></textarea> <button id="b1">Tarkista!</button></div>
+</li>
+<li>Kirjoita ehtolause jossa ikä on suurempi kuin 7 ja pienempi kuin 16 niin oppilas (=student) on tosi.
+    <div><textarea id="t2"></textarea> <button id="b2">Tarkista!</button></div>
+</li>
+<li>Kirjoita ehtolause jossa jalkoja (=feet) on 8 ja verkkosilmät tai yököttävä (=awful) niin hämähäkki (=spider) on tosi 
+    <div><textarea id="t3"></textarea> <button id="b3">Tarkista!</button></div>
+</li>
+<li>Kirjoita ehtolause(et) jossa ensin tarkastetaan onko pelaaja laudalla (=position) suurempi kuin 0 ja pienempi kuin 10.
+    Tämän jälkeen tarkastetaan onko superPomo elossa ja prinsessa pelastamatta.
+    Sitten tarkastetaan onko painettu näppäintä 1 jonka jälkeen kutsutaan funktiota jump.
+    <div><textarea id="t4"></textarea> <button id="b4">Tarkista!</button></div>
+</li>
+
+<li>Kirjoita ehtolause jossa pelaaja saa päävoiton arvonnasta jos viisi arvontaa onnistuu.
+    Math.random() palauttaa satunnaisluvun nollan ja yhden väliltä.
+    Onnistumiseksi voidaan katsoa jos tämä luku on suurempi kuin 0.5 
+    <div><textarea id="t5"></textarea> <button id="b5">Tarkista!</button></div>
+ </li>
+</ol>
+
+<script>
+  const check = (tId, bId, correct) => {
+    document.getElementById(bId).onclick = (e) => {
+      alert('kun olet valmis, pyydä aikuista tarkistamaan!')
+     }
+  }
+  check('t1', 'b1', '')
+  check('t2', 'b2', '')
+  check('t3', 'b3', '')
+  check('t4', 'b4', '() => {}')
+  check('t5', 'b5', '(() => {})()')
+</script>
+
+
+
+
+</body></html>
